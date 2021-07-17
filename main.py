@@ -22,6 +22,8 @@ gaussWalk = np.zeros(n)
 for idx, val in enumerate(gaussWalk):
     gaussWalk[idx] = gaussNoise[0] if idx == 0 else gaussWalk[idx - 1] + gaussNoise[idx]
 
+
+
 fig = plt.figure(figsize=(12, 6))
 sz = np.array([2, 4])
 whiteNoiseAx = plot_TD_FD(whiteNoise, timeAx=fig.add_subplot(sz[0], sz[1], 1), freqAx=fig.add_subplot(sz[0], sz[1], 5), tLim=np.array([0, 100]), title="White Noise")
