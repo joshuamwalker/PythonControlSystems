@@ -24,9 +24,9 @@ for idx, val in enumerate(gaussWalk):
 
 fig = plt.figure(figsize=(12, 6))
 sz = np.array([2, 4])
-whiteNoiseAx = plot_TD_FD(whiteNoise, fs=1, timeAx=fig.add_subplot(sz[0], sz[1], 1), freqAx=fig.add_subplot(sz[0], sz[1], 5), tLim=np.array([0, 100]), title="White Noise")
-randomWalkAx = plot_TD_FD(randomWalk, fs=1, timeAx=fig.add_subplot(sz[0], sz[1], 2), freqAx=fig.add_subplot(sz[0], sz[1], 6), tLim=np.array([0, n]), title="Random Walk")
-gaussNoiseAx = plot_TD_FD(gaussNoise, fs=1, timeAx=fig.add_subplot(sz[0], sz[1], 3), freqAx=fig.add_subplot(sz[0], sz[1], 7), tLim=np.array([0, 100]), title="Gaussian Noise")
-gaussWalkAx = plot_TD_FD(gaussWalk, fs=1, timeAx=fig.add_subplot(sz[0], sz[1], 4), freqAx=fig.add_subplot(sz[0], sz[1], 8), tLim=np.array([0, n]), title="Gaussian Walk")
+whiteNoiseAx = plot_TD_FD(whiteNoise, timeAx=fig.add_subplot(sz[0], sz[1], 1), freqAx=fig.add_subplot(sz[0], sz[1], 5), tLim=np.array([0, 100]), title="White Noise")
+randomWalkAx = plot_TD_FD(randomWalk, timeAx=fig.add_subplot(sz[0], sz[1], 2), freqAx=fig.add_subplot(sz[0], sz[1], 6), tLim=np.array([0, n]), title="Random Walk")
+gaussNoiseAx = plot_TD_FD(gaussNoise, timeAx=fig.add_subplot(sz[0], sz[1], 3), freqAx=fig.add_subplot(sz[0], sz[1], 7), tLim=np.array([0, 100]), title="Gaussian Noise")
+gaussWalkAx = plot_TD_FD(gaussWalk, timeAx=fig.add_subplot(sz[0], sz[1], 4), freqAx=fig.add_subplot(sz[0], sz[1], 8), tLim=np.array([0, n]), title="Gaussian Walk")
 
 plt.show()

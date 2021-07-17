@@ -1,6 +1,5 @@
 class tf:
-    a
-    b
+    a #Denominator coefficients
+    b #Numerator coefficients
     poles
     zeros
-    
