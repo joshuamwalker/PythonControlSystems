@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import math
 
 
-def plot_TD_FD(data, Data=np.array(0), fs=1000, timeAx=0, freqAx=0, tLim=np.array([0, 0]), fLim=np.array([0, 0]), title=""):
+def plot_TD_FD(data, Data=np.array(0), fs=1000, timeAx=0, freqAx=0, tLim=np.array([0, 0]), fLim=np.array([0, 0]), title="", tColor='black', fColor='blue'):
     # Returns 2 axes, time and frequency domain graphs
     # TD and FD axes has limits specified by optional tLim and fLim vectors
     # Optional title can be set for plots
@@ -22,17 +22,17 @@ def plot_TD_FD(data, Data=np.array(0), fs=1000, timeAx=0, freqAx=0, tLim=np.arra
     f = np.arange(0, fs/2, fs/n)
 
     if not any(tLim):
-        tLim = np.array([0, 1000])
+        tLim = np.array([0, n/fs])
     if not any(fLim):
         fLim = np.array([f[10], max(f)])
 
     timeAx.set_title(title + ' TD')
     freqAx.set_title(title + ' FD')
-    timeAx.plot(t, data, color='black')
+    timeAx.plot(t, data, color=tColor)
     timeAx.set_xlim(tLim)
     timeAx.set_ylim(min(data), max(data))
 
-    freqAx.plot(f, Data, color='blue')
+    freqAx.plot(f, Data, color=fColor)
     # freqAx.plot(f, DataSmooth, color='green')
     noise_1f = np.mean(np.divide(abs(Data[1:]), f[1:]))/f[1:]
     freqAx.plot(f[1:], noise_1f, color='red')
