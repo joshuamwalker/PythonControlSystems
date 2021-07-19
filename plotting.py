@@ -47,3 +47,18 @@ def plot_TD_FD(data, Data=np.array(0), fs=1000, timeAx=0, freqAx=0, tLim=np.arra
     # ax1.set_ylim(-axlim, axlim)
 
     return (timeAx, freqAx)
+
+
+def poly_fit_plot(x, y, order, pts, axes=None, color='magenta'):
+    # Perform a polynomial fitting of the specified order
+    # Return the polynomial and the x, y points of the function
+    # Use poly.coef to return the coefficients from the np.polynomial object
+    # https://numpy.org/doc/stable/reference/routines.polynomials.package.html#module-numpy.polynomial
+    # FUTURE: Add some way to slect the polynomial type (Polynomial/Chebyshev/Legendre/etc.)
+    poly = np.polynomial.Polynomial.fit(x, y, order)
+    polypts = poly.linspace(pts, [min(x), max(x)])
+
+    if axes is not None:
+        axes.plot(polypts[0], polypts[1], color=color)
+
+    return(poly, polypts)
